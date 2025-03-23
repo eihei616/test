@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Suger的主页</title>
+    <!-- 只保留一个 swiper 引用 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h1>hello,boss</h1>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="portfolio.html">作品集</a></li>
+                <li><a href="contact.html">联系我</a></li>
+            </ul>
+        </div>
+    </nav>
+<section id="hero">
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <!-- 1 -->
+            <div class="swiper-slide" style="background-image: url('./img/head.jpg')">
+                <div class="slide-content">
+                    <h2>创意设计</h2>
+                    <p>打造独特视觉体验</p>
+                </div>
+            </div>
+            <!-- 2 -->
+            <div class="swiper-slide" style="background-image: url('./img/R-C.jpg')">
+                <div class="slide-content">
+                    <h2>前端开发</h2>
+                    <p>构建高效现代网页</p>
+                </div>
+            </div>
+            <!-- 3 -->
+            <div class="swiper-slide" style="background-image: url('img/花海.jpg');">
+                <div class="slide-content">
+                    <h2>技术咨询</h2>
+                    <p>专业的技术解决方案</p>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+<section id="services">
+    <div class="container">  <!-- 移除 fade-in-section 类 -->
+        <h2>我的服务</h2>
+        <div class="service-grid">
+            <div class="service-card">  <!-- 移除 animate-fade-up 和 delay-1 类 -->
+                <h3>网页设计</h3>
+                <p>提供现代、响应式的网页设计服务，确保在各种设备上都能完美呈现。</p>
+            </div>
+            <div class="service-card">  <!-- 移除 animate-fade-up 和 delay-2 类 -->
+                <h3>前端开发</h3>
+                <p>使用最新技术栈开发高效、可维护的前端代码。</p>
+            </div>
+            <div class="service-card">  <!-- 移除 animate-fade-up 和 delay-3 类 -->
+                <h3>UI/UX设计</h3>
+                <p>专注于用户体验，设计直观易用的界面。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="cta">  <!-- 移除 fade-in-section 类 -->
+    <a href="contact.html" class="button">立即联系我</a>
+</div>
+
+    <!-- 底部脚本部分 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            }
+        });
+    </script>
+    <script>
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.querySelectorAll('.service-card').forEach(c => {
+                    c.classList.remove('active');
+                });
+                card.classList.add('active');
+                document.querySelector('.cta').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            });
+        });
+    </script>
+</body>
+</html>
